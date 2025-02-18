@@ -65,4 +65,33 @@ cd = CD("classic Music")
 print(book.booking())
 print(cd.booking())
 
+#3
+class Contacts:
+    def __init__(self, name, phone):
+        self.name = name
+        self.phone = phone
+
+class Mail_Sender:
+    def send_mail(self, email):
+        print(f"ტექსტი ჩემი გაგზავნა ამ მისამართზე: {email}")
+
+class Friend(Contacts, Mail_Sender):
+    def __init__(self, name, phone, email):
+        super().__init__(name, phone)
+
+        self.email = email
+
+class Family(Contacts, Mail_Sender):
+    def __init__(self, name, phone, email, birthdate):
+        super().__init__(name, phone)
+
+        self.email = email
+        self.birthdate = birthdate
+
+friend = Friend("saba", "112", "saba.artkmeladze@mziuri.ge")
+family = Family("Nino", "911", "nino@deda@gmail.com", "07/09/1976")
+
+friend.send_mail(friend.email)
+family.send_mail(family.email)
+
 
